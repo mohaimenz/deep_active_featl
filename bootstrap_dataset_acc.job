@@ -1,0 +1,16 @@
+#!/bin/bash
+#SBATCH --job-name=pci95
+#SBATCH --time=0-15:00:00
+#SBATCH --ntasks=1
+
+### just increase this as necessary
+#SBATCH --mem=64g
+#SBATCH --cpus-per-task=1
+#SBATCH --gres=gpu:1
+#SBATCH --account=mb20
+#SBATCH --partition=m3g,m3h
+
+module load anaconda/5.1.0-Python3.6-gcc5
+module load pytorch/1.6-cuda10
+
+python bootstrap_dataset_acc.py
